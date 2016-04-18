@@ -1,0 +1,43 @@
+{% block content %}
+<div class="row">
+	<div class="col-md-offset-2 col-md-10 answer-item correct-answer">
+		<div class="col-md-1">
+			<div class="row ava-container">
+				<div class="col-md-12">
+					<a href="#"><img src=/static/img/ava.jpg" width="64" height="64"></a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-offset-2 col-md-10">
+					<a href="#" class="vote-sign like"></a>
+				</div>
+			</div>
+
+			<div class="row vote-count">
+				<div class="col-md-offset-2 col-md-10">
+					<span>{{likes}}</span>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-offset-2 col-md-10">
+					<a href="#" class="vote-sign dislike"></a>
+				</div>
+			</div>
+
+			<div class="row correct-icon">
+				<div class="col-md-offset-2 col-md-10">
+					<img src="img/correct_answer.png" width="32" height="32">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-offset-1 col-md-10">
+			<div class="row">
+				<div class="col-md-12">
+					<p>{{body}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

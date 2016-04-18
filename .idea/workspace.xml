@@ -9,12 +9,7 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/dislike__chosen.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/like.png" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/like__chosen.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/ask_chizhikov.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ask_chizhikov/__init__.py" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ask_chizhikov/settings.py" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ask_chizhikov/urls.py" />
@@ -51,6 +46,7 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/registration.html" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/single_answer.html" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/single_question.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ask_chizhikov.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -377,14 +373,22 @@
       <option name="number" value="Default" />
       <updated>1460890210115</updated>
     </task>
+    <task id="LOCAL-00001" summary="модельки работают">
+      <created>1460984541014</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1460984541014</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1301" height="744" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24980783" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2159877" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -412,6 +416,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="модельки работают" />
+    <option name="LAST_COMMIT_MESSAGE" value="модельки работают" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

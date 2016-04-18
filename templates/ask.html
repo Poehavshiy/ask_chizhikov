@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+
+
+{% block title %}ASK{% endblock %}
+{% block content %}
+	<div class="row">
+		<div class="col-md-offset-1 col-md-10">
+			<form class="form-horizontal" role="form" method="POST" action="">
+				<div class="form-group">
+					<label for="title" class="col-md-2 control-label">Заголовок</label>
+					<div class="col-md-10">
+						<input type="text" class="form-control" id="title" placeholder="Заголовок" name="title">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="text" class="col-md-2 control-label">Текст</label>
+					<div class="col-md-10">
+						<textarea placeholder="Текст" id="text" class="form-control question-text" maxlength="2000" name="text"></textarea>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="text" class="col-md-2 control-label">Теги</label>
+					<div class="col-md-10">
+						<input type="text" class="form-control" id="tokenfield" placeholder="Используйте пробел для разделения тегов" name="tags">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-md-offset-2 col-md-10">
+						<button type="submit" class="btn btn-success">Отправить</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+{% endblock %}

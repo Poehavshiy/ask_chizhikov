@@ -1,0 +1,19 @@
+<div class="col-md-offset-2 col-md-10 paginator">
+    <nav>
+        <ul class="pagination">
+            <li>
+                 {% if pages.has_previous %}
+                <a href="?page={{pages.previous_page_number}}" aria-label="Previous"><span
+                        aria-hidden="true">&laquo;</span></a>
+                 {% endif %}
+            </li>
+             {% for page_number in pages.paginator.page_range %}
+            <li><a href="?page={{page_number}}">{{page_number}}</a></li>
+            {% endfor %}
+             {% if pages.has_next %}
+            <li><a href="?page={{pages.next_page_number}}"
+                   aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>
