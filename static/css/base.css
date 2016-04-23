@@ -60,19 +60,19 @@ a.tag:hover{
 }
 
 .like{
-	background-image: url("../img/like.png");
+	background-image: url("/like.png");
 }
 
 .dislike{
-	background-image: url("../img/dislike.png");
+	background-image: url("/dislike.png");
 }
 
 .like:hover{
-	background-image: url("../img/like__chosen.png");
+	background-image: url("/like__chosen.png");
 }
 
 .dislike:hover{
-	background-image: url("../img/dislike__chosen.png");
+	background-image: url("/dislike__chosen.png");
 }
 
 .vote-count{

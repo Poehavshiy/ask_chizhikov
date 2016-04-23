@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'my_app'
+    'polls',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -79,10 +79,16 @@ WSGI_APPLICATION = 'ask_chizhikov.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'myproject',
+        'USER': 'ask_user',
+        'PASSWORD': '2112916',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
+
+
 
 
 # Password validation
