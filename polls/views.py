@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from operator import itemgetter
 from polls.models import *
+import hashlib
 
 
 def paginate(objects_list, request):
@@ -47,16 +48,33 @@ def tags_question(request, tag):
 
 
 
-
-
-
-
-
-
 def signup(request):
+    if 'submit' in request.POST:
+        hash= hashlib.sha512(request.POST["password"]).hexdigest()
+        #
+        user = User.objects.create_user(
+            username = request.POST["login"],
+            email = request.POST["email"],
+            password = request.POST["password"],
+        )
+        user.save()
+
+        profle = UserProfile.objects.create_profile(author = user, nickname = request.POST["nickname"], image = request.POST["image"])
+        profle.save()
+
+        # just for debuging mesage
+        viewName= ""
+        if(request.POST["nickname"]):
+            viewName = request.POST["nickname"]
+
+        return render(request, 'registration.html', {
+            "message": "User " + viewName + " succesfully added"
+        })
+
     return render(request, 'registration.html')
 
 def login(request):
+
     return render(request, 'login.html')
 
 def ask(request):

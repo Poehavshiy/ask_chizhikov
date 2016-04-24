@@ -5,6 +5,7 @@
 {% block content %}
 	<div class="row">
 		<div class="col-md-offset-1 col-md-9">
+			{% if message %}<p><strong>{{ message }}</strong></p>{% endif %}
 			<form role="form" class="form-horizontal" method="POST" action="" enctype="multipart/form-data">
 				<div class="form-group">
 					<label for="login-field" class="col-md-2 control-label">Login</label>
@@ -23,7 +24,7 @@
 				<div class="form-group">
 					<label for="nick-field" class="col-md-2 control-label">Псевдоним</label>
 					<div class="col-md-10">
-						<input type="text" class="form-control" id="nick-field" placeholder="Псевдоним" name="nick">
+						<input type="text" class="form-control" id="nick-field" placeholder="Псевдоним" name="nickname">
 					</div>
 				</div>
 
@@ -44,13 +45,14 @@
 				<div class="form-group">
 					<label for="ava-field" class="col-md-2 control-label">Аватарка</label>
 					<div class="col-md-10">
-						<input type="file" class="form-control" name="file">
+						<input type="file" class="form-control" name="image">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<div class="col-md-offset-2 col-md-10">
-						<button type="submit" class="btn btn-success">Зарегистрироваться</button>
+						{% csrf_token %}
+						<button type="submit" name="submit" class="btn btn-success">Зарегистрироваться</button>
 					</div>
 				</div>
 			</form>

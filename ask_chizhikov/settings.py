@@ -89,7 +89,12 @@ DATABASES = {
 }
 
 
+# AUTHENTICATION_BACKENDS = (
+#     'polls.models.CustomUserModelBackend',
+#     'django.contrib.auth.backends.ModelBackend',
+# )
 
+#CUSTOM_USER_MODEL = 'polls.models.UserProfile'
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
