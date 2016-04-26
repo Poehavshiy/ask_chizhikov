@@ -15,3 +15,7 @@
     {% endfor %}
 
 {% endblock %}
+
+{% block alltags %}
+{% include "tags.html" with tags=tags %}
+{% endblock %}

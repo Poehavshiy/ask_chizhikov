@@ -1,0 +1,7 @@
+
+<div class="col-md-12 tags-container">
+    <h4>Популярные теги</h4>
+    {% for tag in tags  %}
+       <a href="{% url 'polls:tag_questions' tag.id %}" class="bg-primary tag" style="margin-right: 5px;"><span>{{tag.title}} </span></a>
+    {% endfor %}
+</div>

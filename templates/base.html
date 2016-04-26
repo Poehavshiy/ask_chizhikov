@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">	
 
-	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" type="text/css" href="/css/base.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -60,16 +60,8 @@
 						</div>
 	  		<div class="col-md-2">
 	  			<div class="row">
-	  				<div class="col-md-12 tags-container">
-	  					<h4>Популярные теги</h4>
-	  						<a href="#" class="bg-primary tag"><span>tag1</span></a>
-	  						<a href="#" class="bg-primary tag"><span>tag2</span></a>
-	  						<a href="#" class="bg-primary tag"><span>tag3</span></a>
-	  						<a href="#" class="bg-primary tag"><span>tag4</span></a>
-	  						<a href="#" class="bg-primary tag"><span>tag5</span></a>
-	  						<a href="#" class="bg-primary tag"><span>tag6</span></a>
-	  						<a href="#" class="bg-primary tag"><span>tag7</span></a>
-	  				</div>
+	  				{% block alltags %}
+					{% endblock %}
 	  			</div>
 	  			<div class="row">
 	  				<div class="col-md-12">

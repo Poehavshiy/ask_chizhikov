@@ -6,7 +6,8 @@
 	<div class="row">
 		<div class="col-md-offset-1 col-md-9">
 			{% if message %}<p><strong>{{ message }}</strong></p>{% endif %}
-			<form role="form" class="form-horizontal" method="POST" action="" enctype="multipart/form-data">
+
+			<form role="form" class="form-horizontal" action="{% url 'polls:signup' %}" method="POST" enctype="multipart/form-data">
 				<div class="form-group">
 					<label for="login-field" class="col-md-2 control-label">Login</label>
 					<div class="col-md-10">

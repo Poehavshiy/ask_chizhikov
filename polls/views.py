@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from operator import itemgetter
 from polls.models import *
-import hashlib
+from django.http import Http404
+
 
 
 def paginate(objects_list, request):
@@ -15,67 +15,88 @@ def paginate(objects_list, request):
         objects_page = paginator.page(1)
     except EmptyPage:
         objects_page = paginator.page(paginator.num_pages)
-    return  objects_page, paginator
+    return objects_page, paginator
+
+
+def username_present(login):
+    if User.objects.filter(username=login).exists():
+        return False
+    return True
+
 
 def id_question(request, id):
-    realid=int(id)
-    question = Question.manager.by_id(realid)
-    answers_list = Answer.manager.by_id(realid)
+    realid = int(id)
+    question = None
+    try:
+        question = Question.objects.by_id(realid)
+    except Question.DoesNotExist:
+        raise Http404("Question does not exist")
+    answers_list = Answer.objects.by_id(realid)
     page_answers, paginator = paginate(answers_list, request)
-    return render(request, 'answers.html',{'question':question, 'answers': page_answers})
+    tags_list=Tag.objects.get_all()
+    return render(request, 'answers.html', {'question': question, 'answers': page_answers,
+                                            'tags': tags_list})
 
 
 def new_questions(request):
-    question_list = Question.manager.new()
+    question_list = Question.objects.new()
     page_questions, paginator = paginate(question_list, request)
+    tags_list=Tag.objects.get_all()
     return render(request, 'questions.html', {'questions': page_questions,
                                               'title': 'New questions',
+                                              'tags': tags_list
                                               })
+
 
 def hot_questions(request):
-    question_list = Question.manager.hot()
+    question_list = Question.objects.hot()
     page_questions, paginator = paginate(question_list, request)
+    tags_list=Tag.objects.get_all()
     return render(request, 'questions.html', {'questions': page_questions,
-                                              'title': 'Hot questions',
-                                              })
+                                             'title': 'Hot questions',
+                                              'tags': tags_list
+                                              }
+                  )
 
-def tags_question(request, tag):
-    question_list = Question.manager.by_tags(tag)
+
+def tag_questions(request, id):
+    tagId = int(id)
+    question_list = Question.objects.by_tag(tagId)
     page_questions, paginator = paginate(question_list, request)
-    return render(request, 'questions.html', {'questions': page_questions,
-                                              'title': 'Questions with tag: ' + tag,
-                                              })
-
+    tags_list=Tag.objects.get_all()
+    return render(request, 'questions.html',
+                  {'questions': page_questions,'title': str(tagId), 'tags': tags_list})
 
 
 def signup(request):
     if 'submit' in request.POST:
-        hash= hashlib.sha512(request.POST["password"]).hexdigest()
         #
-        user = User.objects.create_user(
-            username = request.POST["login"],
-            email = request.POST["email"],
-            password = request.POST["password"],
-        )
-        user.save()
+        message = ""
+        if username_present(login=request.POST["login"]) == True:
+            message += "User is already exists"
+        else:
+            user = User.objects.create_user(username=request.POST["login"],
+                                            email=request.POST["email"], password=request.POST["password"])
+            user.save()
+            login = request.POST["login"]
+            profle = UserProfile.objects.create_profile(author=user,
+                                                        nickname=request.POST["nickname"],
+                                                        image=request.POST["image"])
+            profle.save()
+            nickname = request.POST["nickname"]
 
-        profle = UserProfile.objects.create_profile(author = user, nickname = request.POST["nickname"], image = request.POST["image"])
-        profle.save()
-
-        # just for debuging mesage
-        viewName= ""
-        if(request.POST["nickname"]):
-            viewName = request.POST["nickname"]
+            message += "User login=" + login + " User nickname=" + nickname + " created."
 
         return render(request, 'registration.html', {
-            "message": "User " + viewName + " succesfully added"
+            "message": message
         })
 
     return render(request, 'registration.html')
 
-def login(request):
 
+def login(request):
     return render(request, 'login.html')
+
 
 def ask(request):
     return render(request, 'ask.html')
